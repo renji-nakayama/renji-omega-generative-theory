@@ -1,0 +1,84 @@
+### 1. 生成フロー図の論理構造
+
+全体の流れはこうなる：
+
+- **Ω**：未分化の場
+- **F**：4方向生成規則（Dir / Ent / Was / His）
+- **Φ**：安定性の地形（10成分）
+- **G**：生成流（−∇Φ）
+- **S**：原初波動性（線形化スペクトル）
+- **点**：固有モードの凝固
+- **空間**：点＋Was による配置
+- **構造**：空間配置＋His による持続
+- **階層**：構造 → 次階層の点
+- **世界モデル**：階層の圧縮表現（対象・関係・持続）
+- **自己モデル**：世界モデルを扱うモデル
+- **意識**：世界モデル×自己モデル×His による再帰生成
+
+**2. テキスト版フロー図**
+
+Ω  ──▶  F(Dir, Ent, Was, His)
+│
+▼
+Φ（安定性の地形）
+│
+▼
+G（生成流）
+│
+▼
+S（原初波動性）
+│
+▼
+点（固有モードの凝固）
+│
+▼
+空間（点の配置：Was）
+│
+▼
+構造（空間の持続：His）
+│
+▼
+階層（構造 → 次階層の点）
+│
+▼
+世界モデル（階層の圧縮表現）
+│
+▼
+自己モデル（世界モデルを扱う）
+│
+▼
+意識（再帰生成ループ）
+
+**3. LaTeX/TikZ 用の生成フロー図テンプレート**
+
+\begin{tikzpicture}[
+node distance=10mm and 18mm,
+every node/.style={rectangle, rounded corners, draw, align=center}
+]
+
+\node (Omega) {$\Omega$\\未分化の場};
+\node (F)     [below=of Omega] {$F$\\4方向生成規則\\(Dir, Ent, Was, His)};
+\node (Phi)   [below=of F] {$\Phi$\\安定性の地形};
+\node (G)     [below=of Phi] {$G$\\生成流 $G=-\nabla\Phi$};
+\node (S)     [below=of G] {$S$\\原初波動性\\(スペクトル)};
+\node (Point) [below=of S] {点\\固有モードの凝固};
+\node (Space) [below=of Point] {空間\\点の配置 (Was)};
+\node (Struct)[below=of Space] {構造\\空間の持続 (His)};
+\node (Layer) [below=of Struct] {階層\\構造 $\to$ 次階層の点};
+\node (WM)    [below=of Layer] {世界モデル\\階層の圧縮表現};
+\node (SM)    [below=of WM] {自己モデル\\世界モデルを扱う構造};
+\node (Cons)  [below=of SM] {意識\\再帰生成ループ};
+
+\draw[->] (Omega) -- (F);
+\draw[->] (F) -- (Phi);
+\draw[->] (Phi) -- (G);
+\draw[->] (G) -- (S);
+\draw[->] (S) -- (Point);
+\draw[->] (Point) -- (Space);
+\draw[->] (Space) -- (Struct);
+\draw[->] (Struct) -- (Layer);
+\draw[->] (Layer) -- (WM);
+\draw[->] (WM) -- (SM);
+\draw[->] (SM) -- (Cons);
+
+\end{tikzpicture}
